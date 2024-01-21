@@ -37,12 +37,12 @@ You need to install prerequisites before running the project. Please write the f
 - Download video
 
    ```sh
-   node video
+   npm run video
    ```
 - Download audio
 
    ```sh
-   node audio
+   npm run audio
    ```
 ## License
 

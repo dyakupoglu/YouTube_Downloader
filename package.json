@@ -1,7 +1,10 @@
 {
-  "script": {
-    "video": "node download_video.js",
-    "audio": "node download_audio.js"
+  "name": "youtube-downloader",
+  "version": "1.0.1",
+  "scripts": {
+    "build": "node ./build.js",
+    "video": "node ./src/scripts/download-video.js",
+    "audio": "node ./src/scripts/download-audio.js"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

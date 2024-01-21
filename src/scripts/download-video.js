@@ -1,8 +1,9 @@
 import { createWriteStream, unlinkSync } from "fs";
-import ytdl, { getInfo } from "ytdl-core";
-import { path as ffmpegPath } from "@ffmpeg-installer/ffmpeg";
+import ytdl from "ytdl-core";
+import getInfo from "ytdl-core";
+import ffmpegPath from "@ffmpeg-installer/ffmpeg";
 import ffmpeg, { setFfmpegPath } from "fluent-ffmpeg";
-import commonUrl from "./common_url.js";
+import commonUrl from "../utils/url-utils.js";
 setFfmpegPath(ffmpegPath);
 
 const url = commonUrl;
