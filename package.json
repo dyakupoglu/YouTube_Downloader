@@ -1,0 +1,13 @@
+{
+  "script": {
+    "video": "node download_video.js",
+    "audio": "node download_audio.js"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^5.2.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "ytdl-core": "^4.11.5"
+  }
+}
