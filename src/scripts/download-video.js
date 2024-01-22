@@ -1,22 +1,20 @@
 import { createWriteStream, unlinkSync } from "fs";
 import ytdl from "ytdl-core";
-import getInfo from "ytdl-core";
 import ffmpegPath from "@ffmpeg-installer/ffmpeg";
 import ffmpeg, { setFfmpegPath } from "fluent-ffmpeg";
-import commonUrl from "../utils/url-utils.js";
+import { YOUTUBE_URL } from "../utils/url-utils.js";
 setFfmpegPath(ffmpegPath);
 
-const url = commonUrl;
-const videoPath = "./temp/video.mp4";
-const audioPath = "./temp/audio.mp3";
-const finalVideoPath = "./video/finalVideo.mp4";
+const url = YOUTUBE_URL;
+const videoPath = "public/temp/video.mp4";
+const audioPath = "public/temp/audio.mp3";
+const finalVideoPath = "public/video/video.mp4";
 const videoQuality = "highestvideo";
 const audioQuality = "highestaudio";
 
 // Define a function to download and merge the video and audio streams
 async function downloadVideo() {
   try {
-    const info = await getInfo(url);
     const videoStream = ytdl(url, { quality: videoQuality });
     const audioStream = ytdl(url, { quality: audioQuality });
 

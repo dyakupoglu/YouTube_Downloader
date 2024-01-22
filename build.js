@@ -13,6 +13,7 @@ function createPublicFolder() {
     console.log("Audio folder already exists.");
   }
 }
+
 function createVideoFolders() {
   // Create a Video Folder
   const videoFolder = "./public/video";
