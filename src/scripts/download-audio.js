@@ -5,14 +5,14 @@ import fluentFfmpeg from "fluent-ffmpeg";
 import { YOUTUBE_URL } from "../utils/url-utils.js";
 fluentFfmpeg.setFfmpegPath(ffmpegPath);
 
-const url = YOUTUBE_URL;
+const videoUrl = YOUTUBE_URL;
 const audioPath = "public/audio/audio.mp3";
 const audioQuality = "highestaudio";
 
 // Download the audio stream
 async function downloadAudio() {
   try {
-    const audioStream = ytdl(url, { quality: audioQuality });
+    const audioStream = ytdl(videoUrl, { quality: audioQuality });
 
     // Create audio file stream
     const audioFile = createWriteStream(audioPath);
