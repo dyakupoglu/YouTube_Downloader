@@ -8,7 +8,7 @@ setFfmpegPath(ffmpegPath);
 const videoUrl = YOUTUBE_URL;
 const videoPath = "public/temp/video.mp4";
 const audioPath = "public/temp/audio.mp3";
-const finalVideoPath = "public/video/video.mp4";
+const finalVideoPath = "public/video";
 const videoQuality = "highestvideo";
 const audioQuality = "highestaudio";
 
@@ -17,6 +17,10 @@ async function downloadVideo() {
   try {
     const videoStream = ytdl(videoUrl, { quality: videoQuality });
     const audioStream = ytdl(videoUrl, { quality: audioQuality });
+
+    // Get video title from URL info
+    const videoInfo = await ytdl.getInfo(videoUrl);
+    const videoTitle = videoInfo.videoDetails.title;
 
     // Create video and audio file streams
     const videoFile = createWriteStream(videoPath);
@@ -36,7 +40,7 @@ async function downloadVideo() {
     ffmpeg()
       .input(videoPath)
       .input(audioPath)
-      .output(finalVideoPath)
+      .output(`${finalVideoPath}/${videoTitle}.mp4`)
       .on("end", () => {
         console.log("Video download and merge complete!");
 
