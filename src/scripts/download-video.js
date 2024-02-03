@@ -20,7 +20,7 @@ async function downloadVideo() {
 
     // Get video title from URL info
     const videoInfo = await ytdl.getInfo(videoUrl);
-    const videoTitle = videoInfo.videoDetails.title;
+    const videoTitle = videoInfo.videoDetails.title.replace(/[^\w\s]/gi, ""); // Remove special characters
 
     // Create video and audio file streams
     const videoFile = createWriteStream(videoPath);
